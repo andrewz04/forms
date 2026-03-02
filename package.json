@@ -1,0 +1,15 @@
+{
+  "name": "forms",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
