@@ -9,7 +9,9 @@
   "scripts": {},
   "dependencies": {
     "ejs": "^4.0.1",
-    "express": "^5.2.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }
