@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = en>
+<head>
+    <title> Quiz</title>
+</head>
+<body>
+    <%
+    let randomIndex = parseInt(Math.random()*chosenWords.length);
+    let chosenWord = chosenWords(randomIndex);
+    let [correctWord,correctPart,correctDef]= chosenWord.split('\t');
+
+     %>
+     <h1>Word Quiz</h1>
+     <h2> <%= correctWord %> - <% = correctPart %> </h2>
+     <form action = "quiz">
+     <ol>
+        <% = for (currentWord of chosenWords) { 
+            let [word,part,def] = currentWord.split("\t") %>
+            <li> 
+                <label>
+                    <input type = "radio" name = "userGuess" value = "<%= def %> ">
+                     <%= def %> 
+                </label>
+            </li>
+        <%  } %>
+     </ol>
+     <input type = "submit" value="Submit Answer">
+     <input type = "hidden" name = "correctDef" value ="<%= correctDef %>" >
+     <form>
+</body>
+</html>

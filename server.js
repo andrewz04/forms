@@ -1,17 +1,16 @@
 const express = require('express');
 const app = express();
 const userRouter = require('./routes/user');
+const quizRouter = require('./routes/quiz');
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use('/user', userRouter);
+app.use('/quiz', quizRouter);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
-
-app.listen(3000);
+app.listen(3030);
 
 app.get('/submit', (req, res) => {
   console.log('--- GET Request Received ---');
@@ -40,3 +39,4 @@ app.get('/solution', (req, res) => {
 
     res.send("<h2>$(num1) + $(num2) = $(total) </h2> " )
 });
+
