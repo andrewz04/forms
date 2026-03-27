@@ -7,6 +7,17 @@ router.get("/", async(req,res) =>{
     res.render('quiz',(chosenWords));
 })
 
+router.post("/", (req,res) => {
+    console.log(req.body);
+    let (userChoice, correctDef, totalQuestions, totalCorrect) = req.body;
+    if (userChoice === correctDef) {
+         console.log("User Guessed Correctly");
+        let score = totalCorrect + 1;
+    }
+    let total = totalQuestions + 1;
+});
+    
+
 let getWords = async ()=> {
     let randomPart = getRandomPart();
     let allWords = await readFile('resources/allwords.txt','utf-8');
