@@ -7,10 +7,33 @@
 </head>
 <body>
     <form action = "/user" method = "post">
-        <label for ="firstName">
-            First Name:
-            <input type = "text" name = "firstName" value = "<%= locals.firstName %>">
-        </label>
+        <div>
+            <label for ="firstName">
+                First Name:
+                <input type = "text" name = "firstName" value = "<%= locals.firstName %>">
+            </label>
+            <label for ="lastName">
+                Last Name:
+                <input type = "text" name = "lastName" value = "<%= locals.lastName %>">
+            </label>
+        </div>
+
+        <div>
+            <label for = "gender">
+                Gender: <br>
+                <label for "male"><input type = "radio" name = "gender">Male <br>
+                <label for "female"><input type = "radio" name = "gender">Female<br>
+                <label for "other"><input type = "radio" name = "gender">Other<br>    
+
+            </label>
+        </div>
+
+        <div>
+            <label for = "age">
+                Age:
+                <input type = "number" name = "age" value = "<%= locals.age %>">
+            </label>
+        </div>
         <button type = "submit">Submit</button>
     </form>
 </body>

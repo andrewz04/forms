@@ -23,7 +23,7 @@ router.get("list",(req,res) => {
 })
 
 router.get('/new', (req,res)=> {
-    res.render('user/new', {firstName: "Test"});
+    res.render('user/new', {firstName: "First Name", lastName: "Last Name", age: 1});
 });
 
 router.route('/:id').get((req,res) => {
