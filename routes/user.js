@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res)=> {
+router.route('/').get((req, res)=> {
     res.send('User List');
 }).post((req,res)=> {
     const firstName = req.body.firstName;
     const isValid = firstName !=="";
     if(isValid) {
         console.log(`Adding User: ${firstName}`);
-        users.push({name: firstName});
-        res.send("New User has been created");
+        users.push({firstName});
+        res.render("user/list", {users});
     }
     else {
         console.log("Error adding user");
@@ -17,6 +17,10 @@ router.get('/', (req, res)=> {
         
     }
 });
+
+router.get("list",(req,res) => {
+    res.render("user/list", {users});
+})
 
 router.get('/new', (req,res)=> {
     res.render('user/new', {firstName: "Test"});
@@ -33,7 +37,7 @@ router.route('/:id').get((req,res) => {
     res.send(`Updating User data for id: ${req.params.id}`);
 });
 
-const users = [{name:"Bob"}, {name:"Joe"}];
+const users = [{firstName:"Bob"}, {firstName:"Joe"}];
 
 router.param("id", (req, res, next, id) => {
     console.log("Access attempt by user: ",id);
